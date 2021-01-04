@@ -2,12 +2,13 @@ SHELL		:= /bin/sh
 INSTALL		?= install
 
 PREFIX		?= /usr/local
+BINDIR		?= ${PREFIX}/bin
 
 TARGET		:= zola
 
 install: release
-	$(INSTALL)    -d ${DESTDIR}/${PREFIX}/bin
-	$(INSTALL) -s -t ${DESTDIR}/${PREFIX}/bin target/release/${TARGET}
+	$(INSTALL)    -d ${DESTDIR}/${BINDIR}
+	$(INSTALL) -s -t ${DESTDIR}/${BINDIR} target/release/${TARGET}
 release:
 	cargo build --release --locked
 
